@@ -1,0 +1,1 @@
+export default function PhoneLogin(){return(<div className="flex items-center justify-center min-h-screen bg-surface-950"><div className="text-center space-y-4"><h1 className="text-2xl font-bold text-surface-100">Phone Login</h1><p className="text-surface-400 text-sm">Phase 2</p></div></div>);}
