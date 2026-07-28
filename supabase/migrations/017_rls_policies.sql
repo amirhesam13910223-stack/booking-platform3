@@ -30,9 +30,10 @@ create policy "profiles_insert_own" on public.profiles
 create policy "profiles_update_own" on public.profiles
   for update using (auth.uid() = id) with check (auth.uid() = id);
 
--- Public read for referral_code lookups
-create policy "profiles_select_referral" on public.profiles
-  for select using (true);
+-- No public read policy for profiles.
+-- Referral code lookups are done through the secure
+-- public.verify_referral_code(text) function (added in migration 021).
+-- service_role bypasses RLS for admin operations.
 
 -- ─── plans (public) ─────────────────────────
 create policy "plans_select_public" on public.plans

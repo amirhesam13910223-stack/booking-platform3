@@ -37,7 +37,7 @@ export function Topbar({ onMenuClick }: TopbarProps) {
         >
           <Bell className="w-5 h-5" />
           {unreadCount > 0 && (
-            <span className="absolute -top-0.5 -left-0.5 w-4.5 h-4.5 min-w-[18px] px-1 flex items-center justify-center rounded-full bg-brand-500 text-[10px] font-bold text-white">
+            <span className="absolute -top-0.5 -left-0.5 w-5 h-5 min-w-[18px] px-1 flex items-center justify-center rounded-full bg-brand-500 text-[10px] font-bold text-white">
               {unreadCount > 9 ? "۹+" : unreadCount.toLocaleString("fa-IR")}
             </span>
           )}
