@@ -1,0 +1,20 @@
+{
+  "name": "AIHub — دستیار هوشمند فارسی",
+  "short_name": "AIHub",
+  "description": "گفتگوی هوشمند، تحلیل اسناد، تولید محتوا و دستیار برنامه‌نویسی",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "dir": "rtl",
+  "lang": "fa",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
