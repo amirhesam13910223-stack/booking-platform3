@@ -1,1 +1,18 @@
-create table if not exists public.plans(id uuid primary key default gen_random_uuid(),name text not null unique check(name in('free','pro','ultra')),price_toman integer not null default 0,price_yearly_toman integer not null default 0,billing_period text not null default 'monthly' check(billing_period in('monthly','yearly')),daily_message_limit integer not null default 0,monthly_document_limit integer not null default 0,monthly_content_limit integer not null default 0,code_assistant_access boolean not null default false,priority_queue boolean not null default false,created_at timestamptz not null default now());
+-- =============================================
+-- Table: plans
+-- Description: Subscription plan definitions (public)
+-- =============================================
+
+create table if not exists public.plans (
+  id                     uuid primary key default gen_random_uuid(),
+  name                   text not null unique check (name in ('free', 'pro', 'ultra')),
+  price_toman            integer not null default 0,
+  price_yearly_toman     integer not null default 0,
+  billing_period         text not null default 'monthly' check (billing_period in ('monthly', 'yearly')),
+  daily_message_limit    integer not null default 0,
+  monthly_document_limit integer not null default 0,
+  monthly_content_limit  integer not null default 0,
+  code_assistant_access  boolean not null default false,
+  priority_queue         boolean not null default false,
+  created_at             timestamptz not null default now()
+);

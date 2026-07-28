@@ -1,1 +1,10 @@
-export default function Chat(){return(<div className="flex items-center justify-center min-h-screen bg-surface-950"><div className="text-center space-y-4"><h1 className="text-2xl font-bold text-surface-100">Chat</h1><p className="text-surface-400 text-sm">Phase 3</p></div></div>);}
+export default function Chat() {
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-surface-950">
+      <div className="text-center space-y-3">
+        <h1 className="text-2xl font-bold text-surface-100">چت هوشمند</h1>
+        <p className="text-surface-500 text-xs">فاز ۳</p>
+      </div>
+    </div>
+  );
+}

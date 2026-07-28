@@ -1,1 +1,41 @@
-import{useState,useEffect}from"react";import{supabase}from"@/lib/supabaseClient";export function useSubscription(userId:string|undefined){const[sub,setSub]=useState<any>(null);const[plan,setPlan]=useState<any>(null);const[loading,setLoading]=useState(true);useEffect(()=>{if(!userId)return;(async()=>{const{data:s}=await supabase.from("subscriptions").select("*").eq("user_id",userId).eq("status","active").single();if(s){const{data:p}=await supabase.from("plans").select("*").eq("id",s.plan_id).single();setSub(s);setPlan(p);}else{const{data:fp}=await supabase.from("plans").select("*").eq("name","free").single();setPlan(fp);}setLoading(false);})();},[userId]);return{subscription:sub,plan,loading};}
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabaseClient";
+
+export function useSubscription(userId: string | undefined) {
+  const [subscription, setSubscription] = useState<any>(null);
+  const [plan, setPlan] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!userId) return;
+
+    (async () => {
+      const { data: sub } = await supabase
+        .from("subscriptions")
+        .select("*")
+        .eq("user_id", userId)
+        .eq("status", "active")
+        .single();
+
+      if (sub) {
+        const { data: planData } = await supabase
+          .from("plans")
+          .select("*")
+          .eq("id", sub.plan_id)
+          .single();
+        setSubscription(sub);
+        setPlan(planData);
+      } else {
+        const { data: freePlan } = await supabase
+          .from("plans")
+          .select("*")
+          .eq("name", "free")
+          .single();
+        setPlan(freePlan);
+      }
+      setLoading(false);
+    })();
+  }, [userId]);
+
+  return { subscription, plan, loading };
+}

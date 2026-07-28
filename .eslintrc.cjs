@@ -1,1 +1,6 @@
-module.exports={root:true,env:{browser:true,es2020:true},extends:['eslint:recommended'],ignorePatterns:['dist']};
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: ['eslint:recommended'],
+  ignorePatterns: ['dist'],
+};
